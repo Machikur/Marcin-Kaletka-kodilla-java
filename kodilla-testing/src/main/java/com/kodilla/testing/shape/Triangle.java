@@ -8,6 +8,7 @@ public class Triangle implements Shape {
     private int a;
     private int b;
     private int h;
+
     public Triangle(int a, int b, int h) {
         this.a = a;
         this.b = b;

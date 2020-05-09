@@ -5,48 +5,56 @@ import org.junit.*;
 import java.util.ArrayList;
 
 public class CollectionTestSuite {
+    private static int testCounter = 0;
 
     @BeforeClass
-    public static void beforeClass() {
-        System.out.println("rozpoczynam testy");
+    public static void beforeAllTests() {
+        System.out.println("This is the beginning of tests.");
     }
 
     @AfterClass
-    public static void afterClass() {
-        System.out.println("po testach");
+    public static void afterAllTests() {
+        System.out.println("All tests are finished.");
     }
 
     @Before
-    public void before() {
-        System.out.println("obecnie testujemy");
-    }
-
-    @After
-    public void after() {
-        System.out.println("przetestowane");
+    public void beforeEveryTest() {
+        testCounter++;
+        System.out.println("Preparing to execute test #" + testCounter);
     }
 
     @Test
     public void testOddNumbersExterminatorEmptyList() {
+        //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         ArrayList<Integer> emptyList = new ArrayList<>();
 
-        System.out.println("testuje pustą listę");
-        Assert.assertTrue(oddNumbersExterminator.exterminate(emptyList).isEmpty());
+        //When
+        ArrayList<Integer> testList = oddNumbersExterminator.exterminate(emptyList);
+
+        //Then
+        Assert.assertTrue(testList.isEmpty());
+        Assert.assertTrue(emptyList.isEmpty());
     }
 
     @Test
     public void testOddNumbersExterminatorNormalList() {
+        //Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
-        ArrayList<Integer> list = new ArrayList<>();
+        ArrayList<Integer> testlist = new ArrayList<>();
 
-        list.add(5);
-        list.add(15);
-        list.add(52);
-        list.add(54);
+        testlist.add(5);
+        testlist.add(15);
+        testlist.add(52);
+        testlist.add(54);
 
-        System.out.println("testuje listę z róznymi wartościami");
-        Assert.assertFalse(oddNumbersExterminator.exterminate(list).isEmpty());
+        //When
+        ArrayList<Integer> oddNumbersList = oddNumbersExterminator.exterminate(testlist);
+
+        //Then
+        Assert.assertFalse(oddNumbersList.isEmpty());
+        Assert.assertTrue(testlist.size() == 4);
+        Assert.assertTrue(oddNumbersList.size() == 2);
     }
 
 }

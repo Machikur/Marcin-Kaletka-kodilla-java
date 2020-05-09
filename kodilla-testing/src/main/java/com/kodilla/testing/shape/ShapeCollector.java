@@ -23,7 +23,7 @@ public class ShapeCollector {
     }
 
     public Shape getFigure(int position) {
-        if (position > 0 && position < listOfShapes.size()) {
+        if (position >= 0 && position < listOfShapes.size()) {
             return listOfShapes.get(position);
         } else return null;
     }

@@ -27,55 +27,66 @@ public class ShapeCollectorTestSuite {
 
     @Test
     public void testAddShape() {
+        //Given
         ArrayList<Shape> testList = new ArrayList<>();
         ShapeCollector shapeCollector = new ShapeCollector(testList);
         Triangle triangle = new Triangle(5, 10, 15);
-
+        //When
         shapeCollector.addFigure(triangle);
-
+        //Then
         Assert.assertEquals(1, testList.size());
         Assert.assertTrue(testList.contains(triangle));
     }
 
     @Test
     public void testDelShape() {
+        //Given
         ArrayList<Shape> testList = new ArrayList<>();
         ShapeCollector shapeCollector = new ShapeCollector(testList);
-
+        //When
         Triangle triangle = new Triangle(5, 10, 15);
         shapeCollector.addFigure(triangle);
-
+        //Then
         Assert.assertTrue(shapeCollector.removeFigure(triangle));
         Assert.assertTrue(testList.isEmpty());
-        Assert.assertFalse(testList.contains(triangle));
     }
 
     @Test
     public void testDelNonexistenShape() {
+        //Given
         Shape shape = new Square(2);
         ArrayList<Shape> testList = new ArrayList<>();
+        //When
         ShapeCollector shapeCollector = new ShapeCollector(testList);
-
+        //Then
         Assert.assertFalse(shapeCollector.removeFigure(shape));
     }
 
     @Test
     public void testGetFigure() {
+        //Given
         ArrayList<Shape> testList = new ArrayList<>();
         ShapeCollector shapeCollector = new ShapeCollector(testList);
 
+        //When
         Square square = new Square(1);
         shapeCollector.addFigure(square);
 
+        //Then
         Assert.assertEquals(square, testList.get(0));
 
     }
 
     @Test
     public void testGetElementFromNonexistsentIndex() {
+        //Given
         ShapeCollector shapeCollector = new ShapeCollector(new ArrayList<>());
 
-        Assert.assertEquals(shapeCollector.getFigure(1), null);
+        //When
+        Shape testShape = shapeCollector.getFigure(1);
+
+        //Then
+        Assert.assertNull(testShape);
 
 
     }
