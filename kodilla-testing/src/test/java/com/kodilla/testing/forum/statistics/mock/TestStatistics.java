@@ -46,8 +46,9 @@ public class TestStatistics {
         calkulateStatistic.calculateAdvStatistics(statistics);
 
         //Then
-        Assert.assertTrue(calkulateStatistic.getAveragePostsPerUser() == 0);
-        Assert.assertEquals(0, calkulateStatistic.getPostsquantity());
+        Assert.assertEquals(0,calkulateStatistic.getAveragePostsPerUser(),0);
+        Assert.assertEquals(0, calkulateStatistic.getPostsQuantity());
+        Assert.assertEquals(0,calkulateStatistic.getAverageCommentsPerPost(),0);
     }
 
     @Test
@@ -67,8 +68,8 @@ public class TestStatistics {
         calkulateStatistic.calculateAdvStatistics(statistics);
 
         //Then
-        Assert.assertTrue(calkulateStatistic.getAverageCommentsPerUser() == 0);
-        Assert.assertEquals(0, calkulateStatistic.getCommentsquantity());
+        Assert.assertEquals(0,calkulateStatistic.getAverageCommentsPerUser(), 0);
+        Assert.assertEquals(0, calkulateStatistic.getCommentsQuantity());
     }
 
     @Test
@@ -86,8 +87,9 @@ public class TestStatistics {
         calkulateStatistic.calculateAdvStatistics(statistics);
 
         //Then
-        Assert.assertTrue(calkulateStatistic.getAveragePostsPerUser() == 0);
-        Assert.assertEquals(0, calkulateStatistic.getUsersquantity());
+        Assert.assertEquals(0,calkulateStatistic.getAveragePostsPerUser() , 0);
+        Assert.assertEquals(0, calkulateStatistic.getUsersQuantity());
+        Assert.assertEquals(0,calkulateStatistic.getAverageCommentsPerUser(),0);
     }
 
     @Test
@@ -107,8 +109,9 @@ public class TestStatistics {
         calkulateStatistic.calculateAdvStatistics(statistics);
 
         //Then
-        Assert.assertTrue(calkulateStatistic.getAveragePostsPerUser() == 500);
-        Assert.assertEquals(1000, calkulateStatistic.getPostsquantity());
+        Assert.assertEquals(500,calkulateStatistic.getAveragePostsPerUser(), 0);
+        Assert.assertEquals(1000, calkulateStatistic.getPostsQuantity());
+        Assert.assertEquals(0.01,calkulateStatistic.getAverageCommentsPerPost(),0);
     }
 
     @Test
@@ -129,8 +132,9 @@ public class TestStatistics {
         calkulateStatistic.calculateAdvStatistics(statistics);
 
         //Then
-        Assert.assertTrue(calkulateStatistic.getAveragePostsPerUser() == 1);
-        Assert.assertEquals(1000, calkulateStatistic.getUsersquantity());
+        Assert.assertEquals(1,calkulateStatistic.getAveragePostsPerUser(),0);
+        Assert.assertEquals(1000, calkulateStatistic.getUsersQuantity());
+        Assert.assertEquals(0.01,calkulateStatistic.getAverageCommentsPerUser(),0);
     }
 
     @Test
@@ -151,8 +155,9 @@ public class TestStatistics {
         calkulateStatistic.calculateAdvStatistics(statistics);
 
         //Then
-        Assert.assertEquals(10, calkulateStatistic.getCommentsquantity());
-        Assert.assertEquals(1000, calkulateStatistic.getPostsquantity());
+        Assert.assertEquals(10, calkulateStatistic.getCommentsQuantity());
+        Assert.assertEquals(1000, calkulateStatistic.getPostsQuantity());
+        Assert.assertEquals(0.01,calkulateStatistic. getAverageCommentsPerPost(),0);
     }
 
     @Test
@@ -173,7 +178,8 @@ public class TestStatistics {
         calkulateStatistic.calculateAdvStatistics(statistics);
 
         //Then
-        Assert.assertEquals(1000, calkulateStatistic.getCommentsquantity());
-        Assert.assertEquals(10, calkulateStatistic.getPostsquantity());
+        Assert.assertEquals(1000, calkulateStatistic.getCommentsQuantity());
+        Assert.assertEquals(10, calkulateStatistic.getPostsQuantity());
+        Assert.assertEquals(100,calkulateStatistic. getAverageCommentsPerPost(),0);
     }
 }
