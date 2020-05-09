@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ShapeCollector {
 
-    ArrayList<Shape> listOfShapes = new ArrayList<>();
+    ArrayList<Shape> listOfShapes;
 
     public ShapeCollector(ArrayList<Shape> listOfShapes) {
         this.listOfShapes = listOfShapes;
@@ -29,6 +29,9 @@ public class ShapeCollector {
     }
 
     public void showFigures() {
-
+        System.out.println("Lista figur:");
+        for (Shape shape : listOfShapes) {
+            System.out.println(shape.getShameName());
+        }
     }
 }

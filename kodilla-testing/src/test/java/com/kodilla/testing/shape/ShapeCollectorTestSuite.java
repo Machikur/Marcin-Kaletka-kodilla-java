@@ -88,8 +88,20 @@ public class ShapeCollectorTestSuite {
         //Then
         Assert.assertNull(testShape);
 
-
     }
+    @Test
+    public void showAllFigures(){
+        //when
+        ShapeCollector shapeCollector = new ShapeCollector(new ArrayList<>());
+        Shape shape = new Square(2);
 
+        //given
+        shapeCollector.addFigure(shape);
+        shapeCollector.addFigure(shape);
+        shapeCollector.addFigure(shape);
+
+        //then
+        shapeCollector.showFigures();
+    }
 
 }
