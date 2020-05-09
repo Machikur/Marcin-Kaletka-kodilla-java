@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class Square implements Shape {
 
-    private final String name="square";
+    private final String name = "square";
     private int a;
 
     public Square(int a) {
@@ -16,7 +16,7 @@ public class Square implements Shape {
     }
 
     public double getField() {
-        return a*a;
+        return a * a;
     }
 
 

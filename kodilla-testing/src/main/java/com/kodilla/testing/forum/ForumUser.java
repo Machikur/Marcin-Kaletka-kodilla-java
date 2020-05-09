@@ -14,7 +14,7 @@ public class ForumUser {
         this.realName = realName;
     }
 
-    public void addPost(String author, String postBody){
+    public void addPost(String author, String postBody) {
         ForumPost thePost = new ForumPost(postBody, author);
         posts.add(thePost);
     }
@@ -24,15 +24,15 @@ public class ForumUser {
         comments.add(theComment);
     }
 
-    public int getPostsQuantity(){
+    public int getPostsQuantity() {
         return posts.size();
     }
 
-    public int getCommentsQuantity(){
+    public int getCommentsQuantity() {
         return comments.size();
     }
 
-    public ForumPost getPost(int postNumber){
+    public ForumPost getPost(int postNumber) {
         ForumPost thePost = null;
         if (postNumber >= 0 && postNumber < posts.size()) {
             thePost = posts.get(postNumber);
@@ -40,9 +40,9 @@ public class ForumUser {
         return thePost;
     }
 
-    public ForumComment getComment(int commentNumber){
+    public ForumComment getComment(int commentNumber) {
         ForumComment theComment = null;
-        if (commentNumber >= 0 && commentNumber < comments.size()){
+        if (commentNumber >= 0 && commentNumber < comments.size()) {
             theComment = comments.get(commentNumber);
         }
         return theComment;
@@ -50,7 +50,7 @@ public class ForumUser {
 
     public boolean removePost(ForumPost thePost) {
         boolean result = false;
-        if (posts.contains(thePost)){
+        if (posts.contains(thePost)) {
             posts.remove(thePost);
             result = true;
         }
@@ -59,7 +59,7 @@ public class ForumUser {
 
     public boolean removeComment(ForumComment theComment) {
         boolean result = false;
-        if (comments.contains(theComment)){
+        if (comments.contains(theComment)) {
             comments.remove(theComment);
             result = true;
         }

@@ -3,6 +3,13 @@ package com.kodilla.testing.shape;
 import java.util.Objects;
 
 public class Circle implements Shape {
+    private final String name = "circle";
+    private int r;
+
+    public Circle(int r) {
+        this.r = r;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -17,18 +24,11 @@ public class Circle implements Shape {
         return Objects.hash(name, r);
     }
 
-    private final String name="circle";
-    private int r;
-
-    public Circle(int r) {
-        this.r = r;
-    }
-
     public String getShameName() {
         return name;
     }
 
     public double getField() {
-        return 3.14*r*r;
+        return 3.14 * r * r;
     }
 }

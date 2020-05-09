@@ -22,10 +22,13 @@ public class ShapeCollector {
             return false;
     }
 
-    public Shape getFigure(int position){
-        return listOfShapes.get(position);
+    public Shape getFigure(int position) {
+        if (position > 0 && position < listOfShapes.size()) {
+            return listOfShapes.get(position);
+        } else return null;
     }
-    public void showFigures(){
+
+    public void showFigures() {
 
     }
 }

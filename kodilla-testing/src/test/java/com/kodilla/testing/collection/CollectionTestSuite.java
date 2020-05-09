@@ -7,40 +7,46 @@ import java.util.ArrayList;
 public class CollectionTestSuite {
 
     @BeforeClass
-    public static void beforeClass(){
+    public static void beforeClass() {
         System.out.println("rozpoczynam testy");
     }
+
+    @AfterClass
+    public static void afterClass() {
+        System.out.println("po testach");
+    }
+
     @Before
-    public void before(){
+    public void before() {
         System.out.println("obecnie testujemy");
     }
 
     @After
-    public void after(){
+    public void after() {
         System.out.println("przetestowane");
     }
 
-    @AfterClass
-    public static void afterClass(){
-        System.out.println("po testach");
-    }
-
     @Test
-   public void testOddNumbersExterminatorEmptyList() {
+    public void testOddNumbersExterminatorEmptyList() {
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         ArrayList<Integer> emptyList = new ArrayList<>();
+
         System.out.println("testuje pustą listę");
-        oddNumbersExterminator.exterminate(emptyList);
+        Assert.assertTrue(oddNumbersExterminator.exterminate(emptyList).isEmpty());
     }
+
     @Test
     public void testOddNumbersExterminatorNormalList() {
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         ArrayList<Integer> list = new ArrayList<>();
+
         list.add(5);
         list.add(15);
         list.add(52);
         list.add(54);
+
         System.out.println("testuje listę z róznymi wartościami");
-        oddNumbersExterminator.exterminate(list);
+        Assert.assertFalse(oddNumbersExterminator.exterminate(list).isEmpty());
     }
+
 }

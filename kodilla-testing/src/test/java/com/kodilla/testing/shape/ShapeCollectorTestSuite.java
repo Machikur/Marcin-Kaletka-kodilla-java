@@ -24,31 +24,59 @@ public class ShapeCollectorTestSuite {
         System.out.println("Preparing to execute test #" + testCounter);
     }
 
+
     @Test
     public void testAddShape() {
         ArrayList<Shape> testList = new ArrayList<>();
-        ShapeCollector shapeCollector=new ShapeCollector(testList);
-        shapeCollector.addFigure(new Triangle(5,10,15));
-        Assert.assertEquals(1,testList.size());
-    }
+        ShapeCollector shapeCollector = new ShapeCollector(testList);
+        Triangle triangle = new Triangle(5, 10, 15);
 
-    @Test
-    public void testDelShape(){
-        ArrayList<Shape> testList = new ArrayList<>();
-        ShapeCollector shapeCollector=new ShapeCollector(testList);
-        Triangle triangle=new Triangle(5,10,15);
         shapeCollector.addFigure(triangle);
-        Assert.assertTrue(shapeCollector.removeFigure(triangle));
+
+        Assert.assertEquals(1, testList.size());
+        Assert.assertTrue(testList.contains(triangle));
     }
 
     @Test
-    public void testGetFigure(){
+    public void testDelShape() {
         ArrayList<Shape> testList = new ArrayList<>();
-        ShapeCollector shapeCollector=new ShapeCollector(testList);
-        Square square=new Square(1);
+        ShapeCollector shapeCollector = new ShapeCollector(testList);
+
+        Triangle triangle = new Triangle(5, 10, 15);
+        shapeCollector.addFigure(triangle);
+
+        Assert.assertTrue(shapeCollector.removeFigure(triangle));
+        Assert.assertTrue(testList.isEmpty());
+        Assert.assertFalse(testList.contains(triangle));
+    }
+
+    @Test
+    public void testDelNonexistenShape() {
+        Shape shape = new Square(2);
+        ArrayList<Shape> testList = new ArrayList<>();
+        ShapeCollector shapeCollector = new ShapeCollector(testList);
+
+        Assert.assertFalse(shapeCollector.removeFigure(shape));
+    }
+
+    @Test
+    public void testGetFigure() {
+        ArrayList<Shape> testList = new ArrayList<>();
+        ShapeCollector shapeCollector = new ShapeCollector(testList);
+
+        Square square = new Square(1);
         shapeCollector.addFigure(square);
 
-        Assert.assertEquals(square,testList.get(0));
+        Assert.assertEquals(square, testList.get(0));
+
+    }
+
+    @Test
+    public void testGetElementFromNonexistsentIndex() {
+        ShapeCollector shapeCollector = new ShapeCollector(new ArrayList<>());
+
+        Assert.assertEquals(shapeCollector.getFigure(1), null);
+
 
     }
 

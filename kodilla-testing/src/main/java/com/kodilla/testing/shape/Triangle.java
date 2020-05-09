@@ -4,6 +4,16 @@ import java.util.Objects;
 
 public class Triangle implements Shape {
 
+    private final String name = "triangle";
+    private int a;
+    private int b;
+    private int h;
+    public Triangle(int a, int b, int h) {
+        this.a = a;
+        this.b = b;
+        this.h = h;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -20,22 +30,11 @@ public class Triangle implements Shape {
         return Objects.hash(name, a, b, h);
     }
 
-    private final String name="triangle";
-    private int a;
-    private int b;
-    private int h;
-
-    public Triangle(int a, int b, int h) {
-        this.a = a;
-        this.b = b;
-        this.h = h;
-    }
-
     public String getShameName() {
         return name;
     }
 
     public double getField() {
-        return (a+b)*h/2;
+        return (a + b) * h / 2;
     }
 }
