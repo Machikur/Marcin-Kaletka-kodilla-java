@@ -91,16 +91,15 @@ public class ShapeCollectorTestSuite {
     }
     @Test
     public void showAllFigures(){
-        //when
+        //Given
         ShapeCollector shapeCollector = new ShapeCollector(new ArrayList<>());
         Shape shape = new Square(2);
 
-        //given
         shapeCollector.addFigure(shape);
         shapeCollector.addFigure(shape);
         shapeCollector.addFigure(shape);
 
-        //then
+        //when, then
         shapeCollector.showFigures();
     }
 
