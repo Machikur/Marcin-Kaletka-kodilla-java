@@ -46,9 +46,9 @@ public class TestStatistics {
         calkulateStatistic.calculateAdvStatistics(statistics);
 
         //Then
-        Assert.assertEquals(0,calkulateStatistic.getAveragePostsPerUser(),0);
+        Assert.assertEquals(0, calkulateStatistic.getAveragePostsPerUser(), 0);
         Assert.assertEquals(0, calkulateStatistic.getPostsQuantity());
-        Assert.assertEquals(0,calkulateStatistic.getAverageCommentsPerPost(),0);
+        Assert.assertEquals(0, calkulateStatistic.getAverageCommentsPerPost(), 0);
     }
 
     @Test
@@ -68,7 +68,7 @@ public class TestStatistics {
         calkulateStatistic.calculateAdvStatistics(statistics);
 
         //Then
-        Assert.assertEquals(0,calkulateStatistic.getAverageCommentsPerUser(), 0);
+        Assert.assertEquals(0, calkulateStatistic.getAverageCommentsPerUser(), 0);
         Assert.assertEquals(0, calkulateStatistic.getCommentsQuantity());
     }
 
@@ -87,9 +87,9 @@ public class TestStatistics {
         calkulateStatistic.calculateAdvStatistics(statistics);
 
         //Then
-        Assert.assertEquals(0,calkulateStatistic.getAveragePostsPerUser() , 0);
+        Assert.assertEquals(0, calkulateStatistic.getAveragePostsPerUser(), 0);
         Assert.assertEquals(0, calkulateStatistic.getUsersQuantity());
-        Assert.assertEquals(0,calkulateStatistic.getAverageCommentsPerUser(),0);
+        Assert.assertEquals(0, calkulateStatistic.getAverageCommentsPerUser(), 0);
     }
 
     @Test
@@ -109,9 +109,9 @@ public class TestStatistics {
         calkulateStatistic.calculateAdvStatistics(statistics);
 
         //Then
-        Assert.assertEquals(500,calkulateStatistic.getAveragePostsPerUser(), 0);
+        Assert.assertEquals(500, calkulateStatistic.getAveragePostsPerUser(), 0);
         Assert.assertEquals(1000, calkulateStatistic.getPostsQuantity());
-        Assert.assertEquals(0.01,calkulateStatistic.getAverageCommentsPerPost(),0);
+        Assert.assertEquals(0.01, calkulateStatistic.getAverageCommentsPerPost(), 0);
     }
 
     @Test
@@ -132,9 +132,9 @@ public class TestStatistics {
         calkulateStatistic.calculateAdvStatistics(statistics);
 
         //Then
-        Assert.assertEquals(1,calkulateStatistic.getAveragePostsPerUser(),0);
+        Assert.assertEquals(1, calkulateStatistic.getAveragePostsPerUser(), 0);
         Assert.assertEquals(1000, calkulateStatistic.getUsersQuantity());
-        Assert.assertEquals(0.01,calkulateStatistic.getAverageCommentsPerUser(),0);
+        Assert.assertEquals(0.01, calkulateStatistic.getAverageCommentsPerUser(), 0);
     }
 
     @Test
@@ -157,7 +157,7 @@ public class TestStatistics {
         //Then
         Assert.assertEquals(10, calkulateStatistic.getCommentsQuantity());
         Assert.assertEquals(1000, calkulateStatistic.getPostsQuantity());
-        Assert.assertEquals(0.01,calkulateStatistic. getAverageCommentsPerPost(),0);
+        Assert.assertEquals(0.01, calkulateStatistic.getAverageCommentsPerPost(), 0);
     }
 
     @Test
@@ -180,6 +180,6 @@ public class TestStatistics {
         //Then
         Assert.assertEquals(1000, calkulateStatistic.getCommentsQuantity());
         Assert.assertEquals(10, calkulateStatistic.getPostsQuantity());
-        Assert.assertEquals(100,calkulateStatistic. getAverageCommentsPerPost(),0);
+        Assert.assertEquals(100, calkulateStatistic.getAverageCommentsPerPost(), 0);
     }
 }

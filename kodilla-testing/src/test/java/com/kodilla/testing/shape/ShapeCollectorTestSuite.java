@@ -89,8 +89,9 @@ public class ShapeCollectorTestSuite {
         Assert.assertNull(testShape);
 
     }
+
     @Test
-    public void showAllFigures(){
+    public void showAllFigures() {
         //Given
         ShapeCollector shapeCollector = new ShapeCollector(new ArrayList<>());
         Shape shape = new Square(2);
