@@ -7,7 +7,7 @@ public final class World {
 
     private final Set<Continent> continents;
 
-    public World(Set<Continent> continents) {
+    public World(final Set<Continent> continents) {
         this.continents = continents;
     }
 
