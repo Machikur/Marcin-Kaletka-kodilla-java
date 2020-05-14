@@ -1,32 +1,29 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.iterate.NumbersGenerator;
-import com.kodilla.stream.lambda.ExpressionExecutor;
-import com.kodilla.stream.reference.FunctionalCalculator;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        System.out.println("Welcome to module 7 - Stream");
 
-        ExpressionExecutor expressionExecutor = new ExpressionExecutor();
-        expressionExecutor.executeExpression(5, 10, (a, b) -> a + b);
-        expressionExecutor.executeExpression(5, 10, (a, b) -> a - b);
-        expressionExecutor.executeExpression(5, 10, (a, b) -> a * b);
-        expressionExecutor.executeExpression(5, 10, (a, b) -> a / b);
+        Forum forum = new Forum();
+        List<ForumUser> usersList = forum.getUserList();
 
-        expressionExecutor.executeExpression(10, 20, FunctionalCalculator::addAToB);
+        Map<Integer, ForumUser> usersMap = usersList.stream()
+                .filter(user -> String.valueOf(user.getSex()).equals("M"))
+                .filter(user -> ChronoUnit.YEARS.between(user.getDateOfBirth(), LocalDate.now()) > 20)
+                .filter(user -> user.getPostAmount() >= 1)
+                .collect(Collectors.toMap(ForumUser::getUserID, user -> user));
 
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
+        usersMap.entrySet().stream()
+                .forEach(System.out::println);
 
-        poemBeautifier.beautify("Janusz", a -> System.out.println("---" + a.toUpperCase() + "---"));
-        poemBeautifier.beautify("Janek", a -> System.out.println(a.toUpperCase()));
-        poemBeautifier.beautify("Janusz", a -> System.out.println(a.toLowerCase()));
 
-        poemBeautifier.beautify("Janusz", PoemBeautifier::getBeauty);
-
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
     }
-
 }

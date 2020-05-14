@@ -5,8 +5,8 @@ public final class ForumUser {
     private final String username;
     private final String realName;
 
-    public ForumUser(final String username,final String realName) {
-         this.username = username;
+    public ForumUser(final String username, final String realName) {
+        this.username = username;
         this.realName = realName;
     }
 
@@ -14,7 +14,7 @@ public final class ForumUser {
         return username;
     }
 
-    public String getRealName() {
+    public String gewtRealName() {
         return realName;
     }
 }
