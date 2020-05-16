@@ -129,7 +129,7 @@ public class BoardTestSuite {
         long longTasks = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .map(t -> t.getCreated())
+                .map(Task::getCreated)
                 .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0)
                 .count();
 
@@ -149,7 +149,7 @@ public class BoardTestSuite {
         double average = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(list -> list.getTasks().stream())
-                .map(task -> task.getCreated())
+                .map(Task::getCreated)
                 .mapToInt(date -> LocalDate.now().compareTo(date))
                 .average()
                 .orElse(0);
@@ -163,7 +163,7 @@ public class BoardTestSuite {
         int sumDays = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(list -> list.getTasks().stream())
-                .map(task -> task.getCreated())
+                .map(Task::getCreated)
                 .mapToInt(data -> LocalDate.now().compareTo(data))
                 .sum();
 
