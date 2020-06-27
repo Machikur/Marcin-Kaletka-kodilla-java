@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.information;
+package com.kodilla.good.patterns.challenges.secondtask.information;
 
 public class TextOrderInformationService implements OrderInformationService {
     @Override

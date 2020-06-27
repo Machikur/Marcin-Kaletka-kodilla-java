@@ -1,10 +1,10 @@
-package com.kodilla.good.patterns.challenges.product;
+package com.kodilla.good.patterns.challenges.secondtask.product;
 
-public class ProduktDto {
+public class ProductOrderData {
     private String item;
     private boolean bought;
 
-    public ProduktDto(String item, boolean bought) {
+    public ProductOrderData(String item, boolean bought) {
         this.item = item;
         this.bought = bought;
     }

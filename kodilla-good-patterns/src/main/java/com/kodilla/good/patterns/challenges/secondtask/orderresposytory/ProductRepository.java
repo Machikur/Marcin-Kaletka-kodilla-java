@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.orderresposytory;
+package com.kodilla.good.patterns.challenges.secondtask.orderresposytory;
 
 
 public interface ProductRepository {

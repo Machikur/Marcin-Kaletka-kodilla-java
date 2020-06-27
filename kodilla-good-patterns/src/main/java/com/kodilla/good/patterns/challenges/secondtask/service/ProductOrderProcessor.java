@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges.service;
+package com.kodilla.good.patterns.challenges.secondtask.service;
 
 import java.util.ArrayList;
 import java.util.List;
