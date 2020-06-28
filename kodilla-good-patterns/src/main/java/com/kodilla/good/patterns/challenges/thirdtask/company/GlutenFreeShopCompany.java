@@ -42,7 +42,7 @@ public class GlutenFreeShopCompany implements Company {
     private void callCustomer() {
     }
 
-    private void sendCar(){
+    private void sendCar() {
     }
 
 }

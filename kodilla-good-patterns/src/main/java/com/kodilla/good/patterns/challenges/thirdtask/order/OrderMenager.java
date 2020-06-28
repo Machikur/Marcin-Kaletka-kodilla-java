@@ -8,18 +8,18 @@ public class OrderMenager {
 
     private final Information information;
 
-    public OrderMenager( Information information) {
+    public OrderMenager(Information information) {
         this.information = information;
     }
 
-    public void buySometihing(Company company,OrderRequest orderRequest) {
+    public void buySometihing(Company company, OrderRequest orderRequest) {
         ProductData productData = orderRequest.getProductData();
         String localization = orderRequest.getDeliveryPoint();
         if (company.isAvailable(productData)) {
-            int amount =company.process(orderRequest.getProductData());
-            System.out.println(information.getTransactionInfo(orderRequest.getDeliveryPoint(), true,amount));
+            int amount = company.process(orderRequest.getProductData());
+            System.out.println(information.getTransactionInfo(orderRequest.getDeliveryPoint(), true, amount));
         } else {
-            System.out.println(information.getTransactionInfo(localization, false,0));
+            System.out.println(information.getTransactionInfo(localization, false, 0));
         }
     }
 
