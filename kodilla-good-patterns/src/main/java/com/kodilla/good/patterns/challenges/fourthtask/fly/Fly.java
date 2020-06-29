@@ -1,9 +1,10 @@
 package com.kodilla.good.patterns.challenges.fourthtask.fly;
 
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Fly {
+public class Fly implements Serializable {
     private String from;
     private String to;
     private String transfer;
@@ -33,12 +34,13 @@ public class Fly {
         if (o == null || getClass() != o.getClass()) return false;
         Fly fly = (Fly) o;
         return Objects.equals(from, fly.from) &&
-                Objects.equals(to, fly.to);
+                Objects.equals(to, fly.to) &&
+                Objects.equals(transfer, fly.transfer);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(from, to);
+        return Objects.hash(from, to, transfer);
     }
 
     @Override

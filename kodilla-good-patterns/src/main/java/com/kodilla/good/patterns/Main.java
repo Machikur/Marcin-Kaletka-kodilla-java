@@ -1,7 +1,7 @@
 package com.kodilla.good.patterns;
 
 import com.kodilla.good.patterns.challenges.fourthtask.airport.FlyMenager;
-import com.kodilla.good.patterns.challenges.fourthtask.data.FliesData;
+import com.kodilla.good.patterns.challenges.fourthtask.data.FliesTextData;
 import com.kodilla.good.patterns.challenges.fourthtask.information.TextInformation;
 
 public class Main {
@@ -33,11 +33,14 @@ public class Main {
 //        orderMenager.buySometihing(company1,orderRequest);
 //        orderMenager.buySometihing(company2,orderRequest);
 
-        FlyMenager flyMenager = new FlyMenager(new FliesData(), new TextInformation());
+        FlyMenager flyMenager = new FlyMenager(new FliesTextData("Flies.txt"), new TextInformation());
         flyMenager.getConnecting("Londyn", "Warszawa");
         System.out.println();
         flyMenager.getFliesFrom("Warszawa");
         System.out.println();
         flyMenager.getFliesTo("Warszawa");
+        System.out.println();
+        flyMenager.getConnecting("Warszawa", "Berlin");
+        flyMenager.saveFlies();
     }
 }

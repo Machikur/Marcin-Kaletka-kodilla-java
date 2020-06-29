@@ -3,10 +3,12 @@ package com.kodilla.good.patterns.challenges.fourthtask.data;
 import com.kodilla.good.patterns.challenges.fourthtask.fly.Fly;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class FliesData {
-    public List<Fly> getFliesData() {
+public class FliesProgramData implements DataBase {
+
+    public List<Fly> getFliesCollection() {
         List<Fly> list = new ArrayList<>();
         list.add(new Fly("Kraków", "Warszawa"));
         list.add(new Fly("Londyn", "Kraków"));
@@ -21,7 +23,11 @@ public class FliesData {
         list.add(new Fly("Warszawa", "Berlin"));
         list.add(new Fly("Warszawa", "Bruksela"));
         list.add(new Fly("Bruksela", "Nowy York"));
-        list.add(new Fly("Warszawa", "Berlin"));
+        list.add(new Fly("Bruksela", "Berlin"));
         return list;
+    }
+
+    public void saveCollection(Collection<Fly> collection) {
+
     }
 }
