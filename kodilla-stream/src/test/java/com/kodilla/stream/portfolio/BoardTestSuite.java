@@ -170,9 +170,9 @@ public class BoardTestSuite {
         double manualAverage = (double) sumDays / sumTasks;
 
         //Then
-        Assert.assertEquals(3.6, average, 0.1);
+        Assert.assertEquals(0.6, average, 0.1);
         Assert.assertEquals(3, sumTasks);
-        Assert.assertEquals(11, sumDays);
+        Assert.assertEquals(2, sumDays);
         Assert.assertEquals(average, manualAverage, 0);
     }
 
