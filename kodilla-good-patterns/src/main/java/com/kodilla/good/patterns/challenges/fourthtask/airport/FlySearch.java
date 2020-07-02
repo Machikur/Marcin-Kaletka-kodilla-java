@@ -32,12 +32,12 @@ public class FlySearch {
     public List<Fly> getFlyWithTransfer(String from, String to) {
         return flyCollection.stream()
                 .filter(fly -> fly.getFrom().equals(from))
-                .filter(fly -> getFlightsTo(to).stream().anyMatch(f -> f.getFrom().equals(fly.getTo()) || fly.getTo().equals(to)))
+                .filter(fly -> getFlightsTo(to).stream().anyMatch(f -> f.getFrom().equals(fly.getTo())) || fly.getTo().equals(to))
                 .map(fly -> {
                     if (!fly.getTo().equals(to)) {
                         return new Fly(from, fly.getTo(), to);
                     } else {
-                        return new Fly(from, to);
+                        return fly;
                     }
                 })
                 .collect(Collectors.toList());
