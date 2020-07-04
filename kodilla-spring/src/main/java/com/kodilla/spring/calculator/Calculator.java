@@ -1,12 +1,15 @@
 package com.kodilla.spring.calculator;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class Calculator {
-    private final Display display;
 
-    public Calculator(final Display display) {
+    private Display display;
+
+    @Autowired
+    public void setDisplay(final Display display) {
         this.display = display;
     }
 
@@ -35,4 +38,5 @@ public class Calculator {
             return result;
         } else return 0;
     }
+    
 }
