@@ -38,5 +38,5 @@ public class Calculator {
             return result;
         } else return 0;
     }
-    
+
 }

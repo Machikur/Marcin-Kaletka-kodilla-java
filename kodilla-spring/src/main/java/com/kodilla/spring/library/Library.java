@@ -1,6 +1,5 @@
 package com.kodilla.spring.library;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +13,6 @@ public final class Library {
 
     public Library() {
     }
-
-    ;
 
     public void saveToDb() {
         libraryDbController.saveData();
