@@ -35,10 +35,9 @@ public class BoardTestSuite {
         listToDo.add(task3);
 
         //then
-
-        Assert.assertEquals("Task one", doneList.get(0));
-        Assert.assertEquals("Task two", inProgressList.get(0));
-        Assert.assertEquals("Task three", listToDo.get(0));
+        Assert.assertEquals("Task one", context.getBean(Board.class).getDoneList().getTasks().get(0));
+        Assert.assertEquals("Task two", context.getBean(Board.class).getInProgressList().getTasks().get(0));
+        Assert.assertEquals("Task three", context.getBean(Board.class).getToDoList().getTasks().get(0));
 
 
     }
