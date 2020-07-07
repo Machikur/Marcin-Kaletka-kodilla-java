@@ -9,7 +9,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -19,25 +18,25 @@ public class BoardTestSuite {
     public void testTaskAdd() {
         //given
         ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
-        BoardConfig boardConfig = (BoardConfig) context.getBean(BoardConfig.class);
+        Board board = (Board) context.getBean(Board.class);
 
-        List<String> doneList = boardConfig.doneList.getTasks();
-        List<String> inProgressList = boardConfig.inProgressList.getTasks();
-        List<String> listToDo = boardConfig.listToDo.getTasks();
+        TaskList doneList = board.getDoneList();
+        TaskList inProgressList = board.getInProgressList();
+        TaskList listToDo = board.getToDoList();
 
         String task1 = "Task one";
         String task2 = "Task two";
         String task3 = "Task three";
 
         //when
-        doneList.add(task1);
-        inProgressList.add(task2);
-        listToDo.add(task3);
+        doneList.getTasks().add(task1);
+        inProgressList.getTasks().add(task2);
+        listToDo.getTasks().add(task3);
 
         //then
-        Assert.assertEquals("Task one", context.getBean(Board.class).getDoneList().getTasks().get(0));
-        Assert.assertEquals("Task two", context.getBean(Board.class).getInProgressList().getTasks().get(0));
-        Assert.assertEquals("Task three", context.getBean(Board.class).getToDoList().getTasks().get(0));
+        Assert.assertEquals("Task one", board.getDoneList().getTasks().get(0));
+        Assert.assertEquals("Task two", board.getInProgressList().getTasks().get(0));
+        Assert.assertEquals("Task three", board.getToDoList().getTasks().get(0));
 
 
     }
