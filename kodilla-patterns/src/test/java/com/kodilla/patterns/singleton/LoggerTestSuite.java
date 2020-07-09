@@ -17,4 +17,18 @@ public class LoggerTestSuite {
         //then
         Assert.assertEquals(log1, logger.getLastLog());
     }
+
+    @Test
+    public void testSingleton() {
+        //given
+        Logger log1 = Logger.getInstance();
+        Logger log2 = Logger.getInstance();
+
+        //when
+        log1.log("sout");
+
+        //then
+        Assert.assertEquals(log1, log2);
+        Assert.assertEquals(log1.getLastLog(), log2.getLastLog());
+    }
 }
