@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class LibraryTest {
 
     @Test
-    public void testShallowCopy() {
+    public void testShallowAndDeepCopy() {
         //given
         Library library = new Library("library1");
         Library copyLibrary = null;
