@@ -18,7 +18,7 @@ public abstract class User {
         this.socialPublisher = socialPublisher;
     }
 
-    public String share(){
-       return socialPublisher.share();
+    public String share() {
+        return socialPublisher.share();
     }
 }
