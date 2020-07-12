@@ -52,4 +52,15 @@ public class TaskFactoryTestSuite {
         Assert.assertFalse(wasExecute);
         Assert.assertTrue(taskOne.isTaskExecuted());
     }
+    @Test
+    public void testNonExistingTaskFactory(){
+        //given
+        TaskFactory taskFactory = new TaskFactory();
+
+        //when
+        Task taskOne = taskFactory.createTask("NO_TASK");
+
+        //then
+        Assert.assertNull(taskOne);
+    }
 }
