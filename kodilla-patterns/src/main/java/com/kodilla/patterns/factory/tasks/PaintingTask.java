@@ -16,7 +16,7 @@ public class PaintingTask implements Task {
     @Override
     public void executeTask() {
         isExecuted = true;
-        System.out.println("Task is executing: "+taskName);
+        System.out.println("Task is executing: " + taskName);
     }
 
     @Override
