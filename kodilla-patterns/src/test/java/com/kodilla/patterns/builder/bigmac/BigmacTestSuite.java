@@ -23,13 +23,10 @@ public class BigmacTestSuite {
 
     @Test(expected = IllegalArgumentException.class)
     public void noEnoughIngredientsTest() {
-        //given
-
-        //when
+        //then should throw exception
         Bigmac bigmac = new Bigmac.BigmacBulider()
                 .setBun(Bun.SESAME)
                 .build();
-        //then
 
     }
 }
