@@ -48,7 +48,7 @@ public class DbManagerTestSuite {
 
         //when
         String stQuery = "SELECT U.ID,\n" +
-                "CONCAT (U.FISTNAME ,\" \", U.LASTNAME) AS USER,\n" +
+                "CONCAT (U.FIRSTNAME ,\" \", U.LASTNAME) AS USER,\n" +
                 "COUNT(P.USER_ID) AS NUMBER_OF_POSTS\n" +
                 "FROM POSTS P\n" +
                 "JOIN USERS U ON U.ID=P.USER_ID\n" +
@@ -66,6 +66,6 @@ public class DbManagerTestSuite {
         }
         rs.close();
         statement.close();
-        Assert.assertEquals(0, counter);
+        Assert.assertEquals(1, counter);
     }
 }
