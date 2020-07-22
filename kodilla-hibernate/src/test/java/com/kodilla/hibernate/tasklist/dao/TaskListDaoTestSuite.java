@@ -30,7 +30,7 @@ public class TaskListDaoTestSuite {
 
         //then
         Assert.assertFalse(testList.isEmpty());
-        Assert.assertEquals(testList.get(0).getDescription(),"test list");
+        Assert.assertEquals(testList.get(0),taskList);
 
         //Clean Up
         taskListDao.deleteByListName(name);
