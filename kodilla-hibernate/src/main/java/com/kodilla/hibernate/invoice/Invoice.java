@@ -2,6 +2,7 @@ package com.kodilla.hibernate.invoice;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -46,7 +47,7 @@ public class Invoice {
             cascade = CascadeType.ALL,
             fetch = FetchType.LAZY
     )
-    @JoinColumn(name = "ITEMLIST_ID")
+    @Column(name = "INVOICE")
     public List<Item> getItems() {
         return items;
     }
@@ -54,4 +55,6 @@ public class Invoice {
     public void setItems(List<Item> items) {
         this.items = items;
     }
+
+
 }

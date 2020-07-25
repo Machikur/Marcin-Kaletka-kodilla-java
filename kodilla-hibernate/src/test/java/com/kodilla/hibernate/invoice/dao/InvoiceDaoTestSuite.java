@@ -32,6 +32,9 @@ public class InvoiceDaoTestSuite {
         invoice.getItems().add(itemOne);
         invoice.getItems().add(itemTwo);
 
+        itemOne.setInvoice(invoice);
+        itemTwo.setInvoice(invoice);
+
         //when
         invoiceDao.save(invoice);
         int invoiceID = invoice.getId();
@@ -42,11 +45,6 @@ public class InvoiceDaoTestSuite {
         Assert.assertTrue(invoice.getId() != 0);
 
         //cleanUp
-        try {
-
-            invoiceDao.deleteById(invoiceID);
-        } catch (Exception s) {
-
-        }
+        invoiceDao.deleteById(invoiceID);
     }
 }
