@@ -7,8 +7,8 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Company.showCompaniesWithFirstThreeCharacters",
-        query = "SELECT * FROM COMPANIES" +
-                "WHERE SUBSTRING(name,1,3)=SUBSTRING(:NAME,1,3)",
+        query = "SELECT * FROM COMPANIES " +
+                "WHERE SUBSTRING(company_name,1,3)=SUBSTRING(:NAME,1,3)",
         resultClass = Company.class
 )
 @Entity
