@@ -15,6 +15,9 @@ public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
 
+    @Autowired
+    EmployeeDao employeeDao;
+
     @Test
     public void testSaveManyToMany() {
         //Given
@@ -59,5 +62,55 @@ public class CompanyDaoTestSuite {
         } catch (Exception e) {
             //do nothing
         }
+    }
+
+    @Test
+    public void testNamedQueries() {
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+
+        Company softwareMachine = new Company("Software Machine");
+        Company dataMaesters = new Company("Data Maesters");
+        Company greyMatter = new Company("Grey Matter");
+
+        softwareMachine.getEmployees().add(johnSmith);
+        dataMaesters.getEmployees().add(stephanieClarckson);
+        dataMaesters.getEmployees().add(lindaKovalsky);
+        greyMatter.getEmployees().add(johnSmith);
+        greyMatter.getEmployees().add(lindaKovalsky);
+
+        johnSmith.getCompanies().add(softwareMachine);
+        johnSmith.getCompanies().add(greyMatter);
+        stephanieClarckson.getCompanies().add(dataMaesters);
+        lindaKovalsky.getCompanies().add(dataMaesters);
+        lindaKovalsky.getCompanies().add(greyMatter);
+
+        //When
+        companyDao.save(softwareMachine);
+        int softwareMachineId = softwareMachine.getId();
+        companyDao.save(dataMaesters);
+        int dataMaestersId = dataMaesters.getId();
+        companyDao.save(greyMatter);
+        int greyMatterId = greyMatter.getId();
+
+        int companiesWithFirstThreeLetters = companyDao.showCompaniesWithFirstThreeCharacters("Dat").size();
+        int employeesWithLastName = employeeDao.showEmployeeWithLastName("Clarckson").size();
+
+
+        //Then
+        Assert.assertEquals(1, companiesWithFirstThreeLetters);
+        Assert.assertEquals(1, employeesWithLastName);
+
+        //CleanUp
+        try {
+            companyDao.deleteById(softwareMachineId);
+            companyDao.deleteById(dataMaestersId);
+            companyDao.deleteById(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
+        }
+
     }
 }
