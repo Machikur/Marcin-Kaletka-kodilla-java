@@ -96,6 +96,7 @@ public class CompanyDaoTestSuite {
         }
 
     }
+
     @Test
     public void testNamedQueriesCompany() {
         //given

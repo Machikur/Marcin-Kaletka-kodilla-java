@@ -16,15 +16,15 @@ import java.util.Date;
                 query = "FROM Task WHERE duration<10"
         ),
         @NamedQuery(
-                name="Task.retrieveTaskWhereDurationIsLongerThan",
-                query="FROM Task WHERE duration> :DURATION"
+                name = "Task.retrieveTaskWhereDurationIsLongerThan",
+                query = "FROM Task WHERE duration> :DURATION"
         )
 
 })
 
 @NamedNativeQuery(
         name = "Task.retrieveTasksWithEnoughTime",
-        query="SELECT * FROM TASKS" +
+        query = "SELECT * FROM TASKS" +
                 "WHERE DATEDIFF(DATE_ADD(CREATED, INTERVAL DURATION DAY),NOW())>5",
         resultClass = Task.class
 )
