@@ -5,13 +5,13 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
 @NamedQueries({
-        @NamedQuery(name = "Client.showAllMoneyOnAccount",
-                query = "SELECT SUM(cash_balance) FROM ACCOUNT  " +
-                        "WHERE client= :CLIENT "),
+        @NamedQuery(name = "Account.showAllMoneyOnAccount",
+                query = "SELECT SUM(A.cashBalance) FROM Account A " +
+                        "WHERE A.client=:CLIENT"),
 
-        @NamedQuery(name="Client.showAmountOfAccounts",
-        query = " SELECT COUNT(id) FROM ACCOUNT " +
-                "WHERE client= :CLIENT " )
+        @NamedQuery(name = "Account.getNumberOfAccounts",
+                query = " SELECT COUNT(a.id) FROM Account a " +
+                        "WHERE a.client =:CLIENT ")
 })
 
 
@@ -22,7 +22,7 @@ public class Account {
     private Client client;
     private BigDecimal cashBalance;
 
-    public Account( BigDecimal cashBalance) {
+    public Account(BigDecimal cashBalance) {
         this.cashBalance = cashBalance;
     }
 

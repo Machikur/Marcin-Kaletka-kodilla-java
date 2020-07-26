@@ -5,12 +5,18 @@ import com.kodilla.hibernate.bank.Client;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+
+@Repository
+@Transactional
 public interface AccountDao extends CrudRepository<Account,Integer> {
 
     @Query
-    long showAllMoneyOnAccount(@Param("CLIENT") Client client);
+    BigDecimal showAllMoneyOnAccount(@Param("CLIENT") Client client);
 
     @Query
-    long showAmountOfAccounts(@Param("CLIENT") Client client);
+    int getNumberOfAccounts(@Param("CLIENT") Client client);
 }
