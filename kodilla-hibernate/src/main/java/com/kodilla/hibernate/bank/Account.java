@@ -6,14 +6,17 @@ import java.math.BigDecimal;
 
 @NamedQueries({
         @NamedQuery(name = "Account.showAllMoneyOnAccount",
-                query = "SELECT SUM(A.cashBalance) FROM Account A " +
-                        "WHERE A.client=:CLIENT"),
+                query = "SELECT SUM(a.cashBalance) FROM Account a " +
+                        "WHERE a.client=:CLIENT"),
 
         @NamedQuery(name = "Account.getNumberOfAccounts",
                 query = " SELECT COUNT(a.id) FROM Account a " +
-                        "WHERE a.client =:CLIENT ")
-})
+                        "WHERE a.client =:CLIENT "),
 
+        @NamedQuery(name = "Account.getAccountsOfPeopleOlderThanSixty",
+                query = "FROM Account a " +
+                        "WHERE a.client.age>60 ")
+})
 
 @Entity
 @Table(name = "ACCOUNT")
@@ -59,7 +62,7 @@ public class Account {
         return cashBalance;
     }
 
-    private void setCashBalance(BigDecimal cashBalance) {
+    public void setCashBalance(BigDecimal cashBalance) {
         this.cashBalance = cashBalance;
     }
 }

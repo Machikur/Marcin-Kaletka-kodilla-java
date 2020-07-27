@@ -9,14 +9,19 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Repository
 @Transactional
-public interface AccountDao extends CrudRepository<Account,Integer> {
+public interface AccountDao extends CrudRepository<Account, Integer> {
+
 
     @Query
     BigDecimal showAllMoneyOnAccount(@Param("CLIENT") Client client);
 
     @Query
     int getNumberOfAccounts(@Param("CLIENT") Client client);
+
+    @Query
+    List<Account> getAccountsOfPeopleOlderThanSixty();
 }

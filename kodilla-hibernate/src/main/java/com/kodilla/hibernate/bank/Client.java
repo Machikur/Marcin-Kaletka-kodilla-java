@@ -12,14 +12,16 @@ public class Client {
     private int id;
     private String firstName;
     private String lastName;
+    private int age;
     private List<Account> accountList;
 
     public Client() {
     }
 
-    public Client(String firstName, String lastName, List<Account> accountList) {
+    public Client(String firstName, String lastName, int age, List<Account> accountList) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.age = age;
         this.accountList = accountList;
     }
 
@@ -54,7 +56,7 @@ public class Client {
     }
 
     @OneToMany(targetEntity = Account.class,
-            mappedBy ="client",
+            mappedBy = "client",
             cascade = CascadeType.ALL,
             fetch = FetchType.EAGER
     )
@@ -66,6 +68,15 @@ public class Client {
         this.accountList = accountList;
     }
 
+    @Column(name = "AGE")
+    public int getAge() {
+        return age;
+    }
+
+    private void setAge(int age) {
+        this.age = age;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -73,6 +84,7 @@ public class Client {
         Client client = (Client) o;
         return id == client.id;
     }
+
 
     @Override
     public int hashCode() {
