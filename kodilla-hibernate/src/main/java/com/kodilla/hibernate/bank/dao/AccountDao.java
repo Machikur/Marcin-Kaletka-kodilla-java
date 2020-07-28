@@ -23,5 +23,5 @@ public interface AccountDao extends CrudRepository<Account, Integer> {
     int getNumberOfAccounts(@Param("CLIENT") Client client);
 
     @Query
-    List<Account> getAccountsOfPeopleOlderThanSixty();
+    List<Account> getAccountsOfPeopleOlderThanSixty(@Param("AGE") int age);
 }

@@ -38,18 +38,20 @@ public class AccountDaoTestSuite {
         account2.setClient(client);
         account3.setClient(client);
 
-        //when
+
         accountDao.save(account1);
         accountDao.save(account2);
         accountDao.save(account3);
 
-        //then
+        //when
         try {
             BigDecimal allMoneyOnAccount = accountDao.showAllMoneyOnAccount(client);
 
+            //then
             Assert.assertEquals(BigDecimal.valueOf(4500).doubleValue(), allMoneyOnAccount.doubleValue(), 0.1);
         } catch (Exception s) {
         } finally {
+
             //cleanUp
             accountDao.deleteById(account1.getId());
         }
@@ -71,12 +73,11 @@ public class AccountDaoTestSuite {
         account2.setClient(client);
         account3.setClient(client);
 
-        //when
         accountDao.save(account1);
         accountDao.save(account2);
         accountDao.save(account3);
 
-        //then
+        //when
         try {
             int numberOfAccounts = accountDao.getNumberOfAccounts(client);
 
@@ -85,6 +86,7 @@ public class AccountDaoTestSuite {
         } catch (Exception s) {
 
         } finally {
+
             //cleanUp
             accountDao.deleteById(account1.getId());
         }
@@ -109,19 +111,19 @@ public class AccountDaoTestSuite {
         account2.setClient(client2);
         account3.setClient(client3);
 
-        //when
         accountDao.save(account1);
         accountDao.save(account2);
         accountDao.save(account3);
 
-        //then
+        //when
         try {
-            List<Account> accountList = accountDao.getAccountsOfPeopleOlderThanSixty();
+            List<Account> accountList = accountDao.getAccountsOfPeopleOlderThanSixty(60);
 
             //then
             Assert.assertEquals(2, accountList.size());
         } catch (Exception s) {
         } finally {
+
             //cleanUp
             accountDao.deleteById(account1.getId());
             accountDao.deleteById(account2.getId());
@@ -129,79 +131,5 @@ public class AccountDaoTestSuite {
         }
     }
 
-    @Test
-    public void transferMoneyTest() throws NoEnoughMoneyExeption, NoAccountExeption {
-        //given
-        Account account1 = new Account(BigDecimal.valueOf(500));
-        Account account2 = new Account(BigDecimal.valueOf(1500));
 
-        AccountService accountService = new AccountService(accountDao);
-
-        //when
-        accountDao.save(account1);
-        accountDao.save(account2);
-
-        //then
-        try {
-            BigDecimal cashFromBefore = accountDao.findById(account1.getId()).get().getCashBalance();
-            BigDecimal cashToBefore = accountDao.findById(account2.getId()).get().getCashBalance();
-            accountService.transferMoney(account1.getId(), account2.getId(), BigDecimal.valueOf(100));
-            BigDecimal cashFromAfter = accountDao.findById(account1.getId()).get().getCashBalance();
-            BigDecimal cashToAfter = accountDao.findById(account2.getId()).get().getCashBalance();
-
-            Assert.assertEquals(100, cashFromBefore.subtract(cashFromAfter).doubleValue(), 0.1);
-            Assert.assertEquals(100, cashToAfter.subtract(cashToBefore).doubleValue(), 0.1);
-        } catch (Exception s) {
-        } finally {
-            //cleanUp
-            accountDao.deleteById(account1.getId());
-            accountDao.deleteById(account2.getId());
-        }
-
-    }
-
-    @Test(expected = NoEnoughMoneyExeption.class)
-    public void transferMoneyTestNoEnoughMoneyTest() throws NoEnoughMoneyExeption, NoAccountExeption {
-        //given
-        Account account1 = new Account(BigDecimal.valueOf(500));
-        Account account2 = new Account(BigDecimal.valueOf(1500));
-
-        AccountService accountService = new AccountService(accountDao);
-
-        //when
-        accountDao.save(account1);
-        accountDao.save(account2);
-
-        //then
-        try {
-            accountService.transferMoney(account1.getId(), account2.getId(), BigDecimal.valueOf(1000));
-        } finally {
-            //cleanUp
-            accountDao.deleteById(account1.getId());
-            accountDao.deleteById(account2.getId());
-        }
-    }
-
-    @Test(expected = NoAccountExeption.class)
-    public void transferMoneyTestNoAccountExeptionTest() throws NoEnoughMoneyExeption, NoAccountExeption {
-        //given
-        Account account1 = new Account(BigDecimal.valueOf(500));
-        Account account2 = new Account(BigDecimal.valueOf(1500));
-        int nonExistingId = 0;
-
-        AccountService accountService = new AccountService(accountDao);
-
-        //when
-        accountDao.save(account1);
-        accountDao.save(account2);
-
-        //then
-        try {
-            accountService.transferMoney(account1.getId(), nonExistingId, BigDecimal.valueOf(1000));
-        } finally {
-            //cleanUp
-            accountDao.deleteById(account1.getId());
-            accountDao.deleteById(account2.getId());
-        }
-    }
 }

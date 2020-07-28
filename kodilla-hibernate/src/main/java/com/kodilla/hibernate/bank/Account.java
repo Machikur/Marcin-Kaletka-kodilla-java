@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 
         @NamedQuery(name = "Account.getAccountsOfPeopleOlderThanSixty",
                 query = "FROM Account a " +
-                        "WHERE a.client.age>60 ")
+                        "WHERE a.client.age>:AGE ")
 })
 
 @Entity

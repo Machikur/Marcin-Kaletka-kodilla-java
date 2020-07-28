@@ -16,9 +16,6 @@ public class AccountService {
 
     private AccountDao accountDao;
 
-    public AccountService() {
-    }
-
     public AccountService(AccountDao accountDao) {
         this.accountDao = accountDao;
     }
