@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Transactional
@@ -15,4 +16,7 @@ public interface EmployeeDao extends CrudRepository<Employee, Integer> {
 
     @Query
     List<Employee> showEmployeeWithLastName(@Param("LASTNAME") String lastname);
+
+    @Query
+    Optional<Employee> showEmployeeContainingWord(@Param("keyWord") String keyWord);
 }
