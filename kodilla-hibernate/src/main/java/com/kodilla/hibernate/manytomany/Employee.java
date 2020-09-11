@@ -13,7 +13,7 @@ import java.util.List;
 
 @NamedQuery(
         name = "Employee.showEmployeeContainingWord",
-        query = "FROM Employee WHERE lastname LIKE CONCAT('%',:keyWord,'%')"
+        query = "FROM Employee WHERE lastname LIKE CONCAT('%',:KEYWORD,'%')"
 )
 @Entity
 @Table(name = "EMPLOYEES")

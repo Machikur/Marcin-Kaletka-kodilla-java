@@ -2,31 +2,32 @@ package com.kodilla.hibernate.manytomany.facade;
 
 import com.kodilla.hibernate.manytomany.Employee;
 import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
 
-@Service
+@Component
 public class EmployeeSearch {
 
     @Autowired
     private EmployeeDao employeeDao;
 
-    private Logger LOGGER= LoggerFactory.getLogger(EmployeeSearch.class);
 
-    public EmployeeDto findEmployeeContainingKeyWord(String keyWord) throws SearchException {
-        Optional<Employee> optionalEmployee = employeeDao.showEmployeeContainingWord(keyWord);
-        if (optionalEmployee.isPresent()) {
-            Employee employee = optionalEmployee.get();
-            LOGGER.info("The employee was found: " + employee.getFirstname() + " " + employee.getLastname());
-            return new EmployeeDto(employee.getId(), employee.getFirstname(), employee.getLastname());
+    public List<EmployeeDto> findEmployeeContainingKeyWord(String keyWord) {
+        List<Employee> optionalEmployee = employeeDao.showEmployeeContainingWord(keyWord);
+
+        if (!optionalEmployee.isEmpty()) {
+            List<EmployeeDto> employeeDtos = new ArrayList<>();
+            for (int i = 0; i < optionalEmployee.size(); i++) {
+                employeeDtos.add(new EmployeeDto(optionalEmployee.get(i).getId(), optionalEmployee.get(i).getLastname(),
+                        optionalEmployee.get(i).getLastname()));
+            }
+            return employeeDtos;
         } else {
-            LOGGER.error("Employee dosn't exist");
-            throw new SearchException("Searching error");
+            return new ArrayList<>();
         }
     }
 

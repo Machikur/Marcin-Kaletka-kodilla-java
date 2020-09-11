@@ -14,7 +14,7 @@ import java.util.List;
 
 @NamedQuery(
         name = "Company.showCompaniesContainingWord",
-        query = "FROM Company WHERE name LIKE CONCAT('%',:keyWord,'%')"
+        query = "FROM Company WHERE name LIKE CONCAT('%',:KEYWORD,'%')"
 )
 
 @Entity

@@ -18,6 +18,6 @@ public interface CompanyDao extends CrudRepository<Company, Integer> {
     List<Company> showCompaniesWithFirstThreeCharacters(@Param("NAME") String name);
 
     @Query
-    Optional<Company> showCompaniesContainingWord(@Param("keyWord") String keyWord);
+    List<Company> showCompaniesContainingWord(@Param("KEYWORD") String keyWord);
 
 }

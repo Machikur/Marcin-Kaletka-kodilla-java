@@ -1,26 +1,14 @@
 package com.kodilla.hibernate.manytomany.facade;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+@AllArgsConstructor
+@Getter
 public class EmployeeDto {
     private final int id;
     private final String firstname;
     private final String lastname;
 
-    public EmployeeDto(int id, String firstname, String lastname) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-    }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
 }

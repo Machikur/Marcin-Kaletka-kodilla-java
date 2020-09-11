@@ -2,30 +2,30 @@ package com.kodilla.hibernate.manytomany.facade;
 
 import com.kodilla.hibernate.manytomany.Company;
 import com.kodilla.hibernate.manytomany.dao.CompanyDao;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-import java.util.Optional;
+import java.util.ArrayList;
+import java.util.List;
 
-@Service
+@Component
 public class CompanySearch {
+
     @Autowired
     private CompanyDao companyDao;
 
-    private Logger LOGGER= LoggerFactory.getLogger(CompanySearch.class);
 
-    public CompanyDto findEmployeeContainingKeyWord(String keyWord) throws SearchException{
-        Optional<Company> optionalCompany=companyDao.showCompaniesContainingWord(keyWord);
-        if (optionalCompany.isPresent()){
-            Company company= optionalCompany.get();
-            LOGGER.info("The company was found: " + company.getName());
-            return new CompanyDto(company.getId(),company.getName());
-        }
-        else {
-            LOGGER.error("Company dosn't exist");
-            throw new SearchException("Company dosn't exist");
+    public List<CompanyDto> findEmployeeContainingKeyWord(String keyWord) throws SearchException {
+        List<Company> optionalCompany = companyDao.showCompaniesContainingWord(keyWord);
+
+        if (!optionalCompany.isEmpty()) {
+            List<CompanyDto> companyDtos = new ArrayList<>();
+            for (int i = 0; i < optionalCompany.size(); i++) {
+                companyDtos.add(new CompanyDto(optionalCompany.get(i).getId(), optionalCompany.get(i).getName()));
+            }
+            return companyDtos;
+        } else {
+            return new ArrayList<>();
         }
     }
 }
