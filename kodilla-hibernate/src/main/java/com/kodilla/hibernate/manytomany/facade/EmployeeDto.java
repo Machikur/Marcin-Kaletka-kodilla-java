@@ -10,5 +10,4 @@ public class EmployeeDto {
     private final String firstname;
     private final String lastname;
 
-
 }
