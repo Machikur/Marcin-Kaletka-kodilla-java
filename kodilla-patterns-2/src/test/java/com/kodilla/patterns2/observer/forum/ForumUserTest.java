@@ -6,7 +6,7 @@ import org.junit.Test;
 public class ForumUserTest {
 
     @Test
-            public void testUpdate() {
+    public void testUpdate() {
         //Given
         ForumTopic javaHelpForumTopic = new JavaHelpForumTopic();
         ForumTopic javaToolsForumTopic = new JavaToolsForumTopic();
@@ -26,8 +26,8 @@ public class ForumUserTest {
         javaToolsForumTopic.addPost("Message two");
 
         //then
-        Assert.assertEquals(2,forumUser1.getUpdateCount());
-        Assert.assertEquals(4,forumUser2.getUpdateCount());
-        Assert.assertEquals(2,forumUser3.getUpdateCount());
+        Assert.assertEquals(2, forumUser1.getUpdateCount());
+        Assert.assertEquals(4, forumUser2.getUpdateCount());
+        Assert.assertEquals(2, forumUser3.getUpdateCount());
     }
 }

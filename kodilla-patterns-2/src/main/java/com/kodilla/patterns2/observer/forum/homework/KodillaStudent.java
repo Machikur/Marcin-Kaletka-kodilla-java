@@ -6,9 +6,9 @@ import java.util.Deque;
 import java.util.List;
 
 public class KodillaStudent implements Student {
-    private List<Mentor> mentorList;
     private final Deque<String> taskQueue;
     private final String name;
+    private List<Mentor> mentorList;
 
     public KodillaStudent(String name) {
         this.taskQueue = new ArrayDeque<>();
@@ -36,7 +36,7 @@ public class KodillaStudent implements Student {
 
     @Override
     public void removeMentor(Mentor mentor) {
-      mentorList.remove(mentorList);
+        mentorList.remove(mentorList);
     }
 
     public String getName() {
