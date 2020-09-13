@@ -6,10 +6,10 @@ import java.util.List;
 
 public class Order {
 
-    private ProductService productService;
     private final List<Item> items = new ArrayList<>();
     private final Long orderID;
     private final Long userID;
+    private ProductService productService;
     private boolean isPaid;
     private boolean isVeryfied;
     private boolean isSubmitted;

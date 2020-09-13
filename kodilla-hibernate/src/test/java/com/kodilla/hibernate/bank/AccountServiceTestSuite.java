@@ -64,7 +64,7 @@ public class AccountServiceTestSuite {
         accountDao.save(account1);
         accountDao.save(account2);
 
-       //when && then
+        //when && then
         try {
             accountService.transferMoney(account1.getId(), account2.getId(), BigDecimal.valueOf(1000));
         } finally {

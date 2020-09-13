@@ -21,6 +21,7 @@ public class ShopServiceTestSuite {
 
     @Autowired
     private OrderFacade orderFacade;
+
     @Test
     public void testShopServiceSubmitOrder() {
         long orderId = shopService.openOrder(1L);
@@ -66,15 +67,15 @@ public class ShopServiceTestSuite {
     }
 
     @Test
-    public void testShopFacade(){
+    public void testShopFacade() {
         OrderDto order = new OrderDto();
-        order.addItem(new ItemDto(10l,2));
-        order.addItem(new ItemDto(216l,1));
-        order.addItem(new ItemDto(25l,1));
-        order.addItem(new ItemDto(11l,3));
-        try{
-            orderFacade.processOrder(order,1l);
-        }catch (OrderProcessingException s){
+        order.addItem(new ItemDto(10l, 2));
+        order.addItem(new ItemDto(216l, 1));
+        order.addItem(new ItemDto(25l, 1));
+        order.addItem(new ItemDto(11l, 3));
+        try {
+            orderFacade.processOrder(order, 1l);
+        } catch (OrderProcessingException s) {
             //busines exception, should be handled in real aplication
         }
     }

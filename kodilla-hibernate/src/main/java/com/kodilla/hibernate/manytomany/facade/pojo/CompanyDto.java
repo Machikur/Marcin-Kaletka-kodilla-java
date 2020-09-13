@@ -1,4 +1,4 @@
-package com.kodilla.hibernate.manytomany.facade;
+package com.kodilla.hibernate.manytomany.facade.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

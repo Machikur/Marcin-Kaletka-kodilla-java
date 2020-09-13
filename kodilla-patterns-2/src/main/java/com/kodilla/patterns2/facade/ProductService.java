@@ -7,8 +7,8 @@ import java.util.Random;
 
 @Service
 public class ProductService {
-    public BigDecimal getPrice(Long productId){
-        Random random=new Random();
-        return new BigDecimal(random.nextInt(100000)/100);
+    public BigDecimal getPrice(Long productId) {
+        Random random = new Random();
+        return new BigDecimal(random.nextInt(100000) / 100);
     }
 }

@@ -18,7 +18,7 @@ public class TaxiOrderTest {
     }
 
     @Test
-    public void testBasicTaxiOrderGetDescription(){
+    public void testBasicTaxiOrderGetDescription() {
         //given
         TaxiOrder taxiOrder = new BasicTaxiOrder();
         //when
@@ -28,10 +28,10 @@ public class TaxiOrderTest {
     }
 
     @Test
-    public void testTaxiNetworkGetDescription(){
+    public void testTaxiNetworkGetDescription() {
         //given
         TaxiOrder taxiOrder = new BasicTaxiOrder();
-        taxiOrder= new TaxiNetworkOrderDecorator(taxiOrder);
+        taxiOrder = new TaxiNetworkOrderDecorator(taxiOrder);
 
         //when
         String description = taxiOrder.getDescription();
@@ -40,21 +40,22 @@ public class TaxiOrderTest {
     }
 
     @Test
-    public void testTaxiNetworkGetCost(){
+    public void testTaxiNetworkGetCost() {
         //given
         TaxiOrder taxiOrder = new BasicTaxiOrder();
-        taxiOrder= new TaxiNetworkOrderDecorator(taxiOrder);
+        taxiOrder = new TaxiNetworkOrderDecorator(taxiOrder);
         //when
         BigDecimal calculatedCost = taxiOrder.getCost();
         //then
         Assert.assertEquals(new BigDecimal(40), calculatedCost);
     }
+
     @Test
-    public void testMyTaxiWithChildSeatGetCost(){
+    public void testMyTaxiWithChildSeatGetCost() {
         //given
         TaxiOrder taxiOrder = new BasicTaxiOrder();
         taxiOrder = new MyTaxiNetworkOrderDecorator(taxiOrder);
-        taxiOrder= new ChildSeatDecorator(taxiOrder);
+        taxiOrder = new ChildSeatDecorator(taxiOrder);
         //when
         BigDecimal calculatedCost = taxiOrder.getCost();
         //then
@@ -62,36 +63,37 @@ public class TaxiOrderTest {
     }
 
     @Test
-    public void testMyTaxiWithChildSeatGetDecription(){
+    public void testMyTaxiWithChildSeatGetDecription() {
         //given
         TaxiOrder taxiOrder = new BasicTaxiOrder();
         taxiOrder = new MyTaxiNetworkOrderDecorator(taxiOrder);
-        taxiOrder= new ChildSeatDecorator(taxiOrder);
+        taxiOrder = new ChildSeatDecorator(taxiOrder);
         //when
-        String description=taxiOrder.getDescription();
+        String description = taxiOrder.getDescription();
         //then
-        Assert.assertEquals("Drive a course by MyTaxi Network + child seat",description);
+        Assert.assertEquals("Drive a course by MyTaxi Network + child seat", description);
     }
 
     @Test
-    public void testMyTaxiWithTwoChildSeatGetDecription(){
+    public void testMyTaxiWithTwoChildSeatGetDecription() {
         //given
         TaxiOrder taxiOrder = new BasicTaxiOrder();
         taxiOrder = new MyTaxiNetworkOrderDecorator(taxiOrder);
-        taxiOrder= new ChildSeatDecorator(taxiOrder);
-        taxiOrder= new ChildSeatDecorator(taxiOrder);
+        taxiOrder = new ChildSeatDecorator(taxiOrder);
+        taxiOrder = new ChildSeatDecorator(taxiOrder);
         //when
-        String description=taxiOrder.getDescription();
+        String description = taxiOrder.getDescription();
         //then
-        Assert.assertEquals("Drive a course by MyTaxi Network + child seat + child seat",description);
+        Assert.assertEquals("Drive a course by MyTaxi Network + child seat + child seat", description);
     }
+
     @Test
-    public void testVipTaxiWithChildSeatExpressGetCost(){
+    public void testVipTaxiWithChildSeatExpressGetCost() {
         //given
         TaxiOrder taxiOrder = new BasicTaxiOrder();
-        taxiOrder= new TaxiNetworkOrderDecorator(taxiOrder);
-        taxiOrder=new VipDecorator(taxiOrder);
-        taxiOrder=new ChildSeatDecorator(taxiOrder);
+        taxiOrder = new TaxiNetworkOrderDecorator(taxiOrder);
+        taxiOrder = new VipDecorator(taxiOrder);
+        taxiOrder = new ChildSeatDecorator(taxiOrder);
         //when
         BigDecimal calculatedCost = taxiOrder.getCost();
         //then
@@ -99,14 +101,14 @@ public class TaxiOrderTest {
     }
 
     @Test
-    public void testVipTaxiWithChildSeatExpressGetDescription(){
+    public void testVipTaxiWithChildSeatExpressGetDescription() {
         //given
         TaxiOrder taxiOrder = new BasicTaxiOrder();
-        taxiOrder= new TaxiNetworkOrderDecorator(taxiOrder);
-        taxiOrder=new VipDecorator(taxiOrder);
-        taxiOrder=new ChildSeatDecorator(taxiOrder);
+        taxiOrder = new TaxiNetworkOrderDecorator(taxiOrder);
+        taxiOrder = new VipDecorator(taxiOrder);
+        taxiOrder = new ChildSeatDecorator(taxiOrder);
         //when
-        String description= taxiOrder.getDescription();
+        String description = taxiOrder.getDescription();
         //then
         Assert.assertEquals("Drive a course by Taxi Network variant VIP + child seat", description);
     }

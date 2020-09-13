@@ -1,10 +1,7 @@
 package com.kodilla.hibernate.bank.dao;
 
 import com.kodilla.hibernate.bank.Account;
-import com.kodilla.hibernate.bank.AccountService;
 import com.kodilla.hibernate.bank.Client;
-import com.kodilla.hibernate.bank.exeption.NoAccountExeption;
-import com.kodilla.hibernate.bank.exeption.NoEnoughMoneyExeption;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

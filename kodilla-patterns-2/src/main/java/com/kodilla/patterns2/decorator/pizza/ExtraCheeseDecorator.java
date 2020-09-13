@@ -2,7 +2,7 @@ package com.kodilla.patterns2.decorator.pizza;
 
 import java.math.BigDecimal;
 
-public class ExtraCheeseDecorator extends AbstractPizzaDecorator{
+public class ExtraCheeseDecorator extends AbstractPizzaDecorator {
     public ExtraCheeseDecorator(PizzaOrder pizzaOrder) {
         super(pizzaOrder);
     }

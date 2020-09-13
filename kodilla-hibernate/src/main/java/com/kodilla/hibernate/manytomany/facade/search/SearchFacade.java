@@ -1,11 +1,12 @@
-package com.kodilla.hibernate.manytomany.facade;
+package com.kodilla.hibernate.manytomany.facade.search;
 
+import com.kodilla.hibernate.manytomany.facade.pojo.CompanyDto;
+import com.kodilla.hibernate.manytomany.facade.pojo.EmployeeDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -21,17 +22,16 @@ public class SearchFacade {
 
     public List<CompanyDto> findCompany(String keyWord) throws SearchException {
 
-        List<CompanyDto> companies = companySearch.findEmployeeContainingKeyWord(keyWord);
+        List<CompanyDto> companies = companySearch.findComapnyContainingKeyWord(keyWord);
         if (!companies.isEmpty()) {
             for (CompanyDto companyDto : companies) {
                 LOGGER.info("The company was found: " + companyDto.getName());
-                return companySearch.findEmployeeContainingKeyWord(keyWord);
             }
+            return companies;
         } else {
             LOGGER.error("Searching error");
             throw new SearchException("Company dosn't exist");
         }
-        return new ArrayList<>();
     }
 
     public List<EmployeeDto> findEmployee(String keyWord) throws SearchException {
@@ -39,12 +39,12 @@ public class SearchFacade {
         if (!employees.isEmpty()) {
             for (EmployeeDto employee : employees) {
                 LOGGER.info("The employee was found: " + employee.getFirstname() + " " + employee.getLastname());
-                return employees;
             }
+            return employees;
+
         } else {
             LOGGER.error("Searching error");
             throw new SearchException("Employee dosn't exist");
         }
-        return new ArrayList<>();
     }
 }
