@@ -1,10 +1,10 @@
 package com.kodilla.hibernate.manytomany.facade;
 
+import com.kodilla.hibernate.manytomany.dao.CompanyDao;
+import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
 import com.kodilla.hibernate.manytomany.facade.pojo.Company;
 import com.kodilla.hibernate.manytomany.facade.pojo.CompanyDto;
 import com.kodilla.hibernate.manytomany.facade.pojo.Employee;
-import com.kodilla.hibernate.manytomany.dao.CompanyDao;
-import com.kodilla.hibernate.manytomany.dao.EmployeeDao;
 import com.kodilla.hibernate.manytomany.facade.pojo.EmployeeDto;
 import com.kodilla.hibernate.manytomany.facade.search.SearchException;
 import com.kodilla.hibernate.manytomany.facade.search.SearchFacade;
@@ -84,7 +84,7 @@ public class SearchFacadeTest {
         String nonExistingKey = "xxx";
 
         //when
-        searchFacade.findCompany(nonExistingKey);
+        searchFacade.findEmployee(nonExistingKey);
 
         //then
         //nothing

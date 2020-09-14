@@ -1,4 +1,4 @@
-package com.kodilla.patterns2.observer.forum.homework;
+package com.kodilla.patterns2.observer.homework;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.List;
 public class KodillaStudent implements Student {
     private final Deque<String> taskQueue;
     private final String name;
-    private List<Mentor> mentorList;
+    private final List<Mentor> mentorList;
 
     public KodillaStudent(String name) {
         this.taskQueue = new ArrayDeque<>();
@@ -36,10 +36,14 @@ public class KodillaStudent implements Student {
 
     @Override
     public void removeMentor(Mentor mentor) {
-        mentorList.remove(mentorList);
+        mentorList.remove(mentor);
     }
 
     public String getName() {
         return name;
+    }
+
+    public List<Mentor> getMentorList() {
+        return mentorList;
     }
 }

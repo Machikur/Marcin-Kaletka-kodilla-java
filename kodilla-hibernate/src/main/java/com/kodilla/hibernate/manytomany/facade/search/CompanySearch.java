@@ -1,7 +1,7 @@
 package com.kodilla.hibernate.manytomany.facade.search;
 
-import com.kodilla.hibernate.manytomany.facade.pojo.Company;
 import com.kodilla.hibernate.manytomany.dao.CompanyDao;
+import com.kodilla.hibernate.manytomany.facade.pojo.Company;
 import com.kodilla.hibernate.manytomany.facade.pojo.CompanyDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
