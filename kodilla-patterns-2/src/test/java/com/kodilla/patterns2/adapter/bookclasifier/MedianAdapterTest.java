@@ -11,7 +11,7 @@ import java.util.Set;
 public class MedianAdapterTest {
 
     @Test
-    public void medianTest() {
+    public void publicationYearMedianTest() {
 
         //given
         MedianAdapter medianAdapter = new MedianAdapter(new Statistics());
