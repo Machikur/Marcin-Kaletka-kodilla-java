@@ -12,8 +12,8 @@ import java.math.BigDecimal;
 
 @Aspect
 @Component
-public class Watcher {
-    private static final Logger LOGGER = LoggerFactory.getLogger(Watcher.class);
+public class WatcherCalk {
+    private static final Logger LOGGER = LoggerFactory.getLogger(WatcherCalk.class);
 
     @Before("execution(* com.kodilla.patterns2.aop.calculator.Calculator.factorial(..))" +
             "&& args(theNumber) && target(object)")

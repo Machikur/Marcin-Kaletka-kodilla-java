@@ -36,7 +36,7 @@ public class TaxiOrderTest {
         //when
         String description = taxiOrder.getDescription();
         //then
-        Assert.assertEquals("Drive a course by taxi Network", description);
+        Assert.assertEquals("Drive a course by Taxi Network", description);
     }
 
     @Test

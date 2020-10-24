@@ -13,8 +13,9 @@ import java.math.BigDecimal;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(SpringRunner.class)
+
 @SpringBootTest
+@RunWith(SpringRunner.class)
 public class CalculatorTestSuite {
 
     private static final Logger LOGGER =
