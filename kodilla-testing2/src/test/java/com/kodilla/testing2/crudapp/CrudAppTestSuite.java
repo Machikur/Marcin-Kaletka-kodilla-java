@@ -111,7 +111,7 @@ public class CrudAppTestSuite {
 
     }
 
-    private boolean deleteTaskFromKodillaApp(String taskName) {
+    private boolean deleteTaskFromKodillaApp(String taskName) throws InterruptedException {
 
         driver.switchTo().alert().accept();
 
@@ -122,10 +122,12 @@ public class CrudAppTestSuite {
                         anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
                                 .getText().equals(taskName))
                 .forEach(theForm -> {
-                    WebElement buttonCreateCard =
+                    WebElement deleteButton =
                             theForm.findElement(By.xpath(".//button[contains(text(),\"Delete\")]"));
-                    buttonCreateCard.click();
+                    deleteButton.click();
                 });
+
+        Thread.sleep(4000);
 
         return driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream().noneMatch(anyForm ->
                 anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
